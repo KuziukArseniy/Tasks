@@ -1,5 +1,7 @@
 package TaskWithOrganization;
 
+import java.util.Queue;
+
 public class Objects {
     public static void run (){
         Supervisor supervisor = new Supervisor("Arsesha", 1000);

@@ -1,6 +1,8 @@
 package TaskWithOrganization;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Supervisor extends Human {
     private String name;
@@ -37,26 +39,25 @@ public class Supervisor extends Human {
     }
 
     private int countOfSubordinates = 0;
-    private Subordinate[] sub = new Subordinate[countOfSubordinates];
+    private final List<Subordinate> sub = new ArrayList<>();
 
 
     public void addSubordinate(Subordinate subordinate) {
-        sub = Arrays.copyOf(sub, sub.length + 1);
-        sub[countOfSubordinates] = subordinate;
+        //sub[countOfSubordinates].add(subordinate);
         countOfSubordinates++;
     }
     public void printSubordinates ()
     {
-        if(sub.length == 0)
+        if(sub.isEmpty())
         {
             System.out.println("У руководителя нет работников");
         }
         else
         {
             String[] names = new String[0];
-            for (int i = 0; i < sub.length; i++) {
+            for (int i = 0; i < sub.size(); i++) {
                 names = Arrays.copyOf(names, names.length + 1);
-                names[i] = sub[i].getName();
+                names[i] = sub.get(i).getName();
             }
             System.out.println(Arrays.toString(names));
         }
